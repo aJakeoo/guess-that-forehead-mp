@@ -2,11 +2,30 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+
+<!-- ── Native app feel on iOS home screen ──────────────────────
+     These tags tell iOS: when launched from the home screen, run
+     fullscreen with no Safari URL bar or toolbar — exactly how apps
+     like Xbox Cloud Gaming behave. iOS reads these AT THE MOMENT you
+     add the icon, so after changing them you must delete the old
+     home-screen icon and re-add it from a fresh Safari load. -->
 <meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Forehead" />
+<meta name="theme-color" content="#0c0a14" />
+
 <title>Guess That Forehead</title>
 <style>
-  html, body { margin: 0; padding: 0; background: #0c0a14; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0c0a14;
+    /* Respect the notch / home-indicator safe areas in fullscreen mode */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
   #root { min-height: 100vh; }
 </style>
 <!-- React + Babel -->
